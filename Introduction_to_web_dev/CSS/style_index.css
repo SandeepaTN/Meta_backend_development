@@ -1,0 +1,45 @@
+h1{                     /* element selector*/                                
+    color: #06c12f;
+    padding-left:10% ;
+    background-color: rgb(237, 234, 205);
+    z-index: inherit;
+    
+
+}
+
+ table,th,td {
+     border: 1px solid rgb(16, 15, 15);
+
+ }
+#item1 {                        /* id selector*/
+    color: rgb(214, 119, 17);
+
+}
+
+.item2{                             /* class selector*/
+    color:rgba(14, 202, 64, 0.753)
+}
+
+p{
+    color: hsl(269, 27%, 30%);
+    font-size: 18px;
+}
+
+a:hover{                              /* pseudo-class selector*/
+    color: #f40909;
+}
+
+.item2 p:hover{                     /*Descendant Selectors*/
+    color:rgb(1, 132, 246) ;
+
+}
+
+
+p.p1:hover{                         /*Element with Class Selector*/
+    color: #740fef72;
+}
+
+
+.food > h2 {                    /*child selector*/
+    color: rgb(195, 42, 90);
+}
