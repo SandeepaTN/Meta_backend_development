@@ -1,0 +1,24 @@
+body{
+    background-color:#E0E0E2 ;
+}
+h1,h2{
+    color: #721817;
+    
+}
+.center-text{
+    text-align: center;
+}
+   
+#logo{
+    display: block;
+    margin :auto;
+}
+ h2 > span{
+     color:#FA9F42;
+     font-size: .75em;
+ }
+
+ #copyright{
+     padding-top: 12px;
+     font-size: .75em;
+ }
