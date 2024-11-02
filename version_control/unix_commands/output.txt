@@ -1,0 +1,6 @@
+total 9
+-rw-r--r-- 1   1087 Nov   18:08 commands.txt
+-rw-r--r-- 1      0 Nov   18:14 output.txt
+drwxr-xr-x 1      0 Nov   17:37 san/
+-rw-r--r-- 1     29 Nov   18:05 san.txt
+-rwxr-xr-x 1     54 Nov   17:37 testshell.sh*

@@ -1,0 +1,33 @@
+mkdir unix_commands                 #create directoty
+cd unix_commands/                   #change directory
+touch commands.txt                  #create a newfile
+history                             #view typed commands history
+man ls                              #helper- to view instruction about that perticula commands
+ls -la                              #list contents including hidden
+pwd                                 #full path of current wd
+cp ../sandy.txt  sandy.txt          #copy files and folder(cp  -r ../dummy san)
+mv ../sandy.txt san                 #move files and folders
+mv sandy.txt san.txt                #also for renaming 
+less san/sandy.txt                  #to view file content
+vim filename                        #text editor, i for insert , :wq! for save
+chmod 755 testshell.sh              #change permision
+./testshell.sh                      #run shellscript
+cat filename                        #contents of text
+wc san.txt                          #world count, lines, number of charcters
+cat san.txt testshell.sh | wc -w    #pipes(combining commands)
+cat > san.txt                       #taking input to the file (cntrl+d at the end)
+cat < san.txt                       #output
+ls -l > output.txt                  #ouput redirection from std output
+man ls 2> output1.txt               # storing stderr only(mentioning 2> here helps if error occurs in running a command ,the error msg also stored in) 
+man ls > output1.txt 2>&1           #redirecting stderr and stdo whichever happens
+grep Sam san.txt                    #global regular expression print (all partial matches- case sensitive)
+grep -i  Sam san.txt                #case insensitive
+grep -w  Sam san.txt                #exact match(word)
+grep -x  Sam  san.txt               #exact match(line)
+grep -c  Sam  san.txt               #count matches
+grep --color  Sam  san.txt          #applies color to the matches
+grep --max-count=3  Sam  san.txt    #stop reading after max count is reached
+ls -l | grep txt            
+
+
+
