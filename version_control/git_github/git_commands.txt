@@ -6,5 +6,5 @@ git commit -m msg                       #to commit messages
 git branch add_feauture                 #create a new branch
 git checkout add_feauture               #Switched to branch 'add_feauture'
 git checkout -b  add_feauture           #directly create and switch
-
+git push -u origin add_feauture         #to push changes from  local branch named add_feature to a remote repository(origin)    
 
