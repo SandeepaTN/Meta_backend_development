@@ -1,3 +1,10 @@
-git status                  #to view status
+git init                                #Creation of the .git Directory
+git status                              #to view status
+git add filename/folder/.               #to track file/ to staging
+git restore --stage filename/folder/.   #to resore to previous
+git commit -m msg                       #to commit messages  
+git branch add_feauture                 #create a new branch
+git checkout add_feauture               #Switched to branch 'add_feauture'
+git checkout -b  add_feauture           #directly create and switch
 
 
