@@ -12,7 +12,8 @@ git push -u origin add_feauture                                 #to push changes
 git remote -v                                                   #to find the remote repository it is
 git merge branch_name                                           #Merges branch_name into the current branch.
 git branch -d add_feautur                                       #Deleted branch add_feautur
-git pull                                                        #pull from remote
+git pull                                                        #pull from remote, changes are merged
+git fetch origin                                                #Fetch Changes from Remote without Merging
 git log --pretty=oneline                                        #to view logs 
 git diff HEAD version_control/unix_commands/commands.txt        #to see difference 
 git blame filename                                              # history of each line in the current version of the file
