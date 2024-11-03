@@ -11,6 +11,6 @@ git remote -v                                                   #to find the rem
 git pull                                                        #pull from remote
 git log --pretty=oneline                                        #to view logs 
 git diff HEAD version_control/unix_commands/commands.txt        #to see difference 
-git blame filename                                              #to see changes made to the single file
+git blame filename                                              # history of each line in the current version of the file
 git blame -L 9,12  version_control/git_github/git_commands.txt  #to see exact line changes 
 
