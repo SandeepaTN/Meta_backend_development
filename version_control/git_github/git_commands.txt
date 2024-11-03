@@ -13,4 +13,6 @@ git log --pretty=oneline                                        #to view logs
 git diff HEAD version_control/unix_commands/commands.txt        #to see difference 
 git blame filename                                              # history of each line in the current version of the file
 git blame -L 9,12  version_control/git_github/git_commands.txt  #to see exact line changes 
-
+git stash                                                       #temporarily saves uncommitted changes
+git stash list                                                  #see the list of stashes
+git stash  show -p stash@{0}                                    #To view what was stashed without applying it
