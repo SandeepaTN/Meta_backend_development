@@ -1,13 +1,17 @@
+notes by me:
 git init                                                        #Creation of the .git Directory
+git config --list                                               # iew Configuration Information
 git status                                                      #to view status
 git add filename/folder/.                                       #to track file/ to staging
-git restore --stage filename/folder/.                           #to resore to previous
+git restore --stage filename/folder/.                           #Restore Files from Staging
 git commit -m msg                                               #to commit messages  
 git branch add_feauture                                         #create a new branch
 git checkout add_feauture                                       #Switched to branch 'add_feauture'
 git checkout -b  add_feauture                                   #directly create and switch
 git push -u origin add_feauture                                 #to push changes from  local branch named add_feature to a remote repository(origin)    
 git remote -v                                                   #to find the remote repository it is
+git merge branch_name                                           #Merges branch_name into the current branch.
+git branch -d add_feautur                                       #Deleted branch add_feautur
 git pull                                                        #pull from remote
 git log --pretty=oneline                                        #to view logs 
 git diff HEAD version_control/unix_commands/commands.txt        #to see difference 
@@ -16,3 +20,127 @@ git blame -L 9,12  version_control/git_github/git_commands.txt  #to see exact li
 git stash                                                       #temporarily saves uncommitted changes
 git stash list                                                  #see the list of stashes
 git stash  show -p stash@{0}                                    #To view what was stashed without applying it
+git stash pop stash@{0}                                         #Applies the stash and removes it from the list.
+git stash apply stash@{0}                                       #Brings back the changes but keeps the stash in the list.
+git reset --soft HEAD~1                                         #Undo Last Commit (but keep changes staged)
+
+
+
+from other sources
+# Git Commands and Descriptions
+
+git init
+# Creation of the .git Directory
+# Initializes a new Git repository, creating a `.git` directory in the current folder.
+
+git status
+# to view status
+# Displays the state of the working directory and staging area (i.e., lists new, modified, and staged files).
+
+git add filename/folder/.
+# to track file/ to staging
+# Adds specified files to the staging area. Use `.` to add all modified files in the directory.
+
+git restore --staged filename/folder/.
+# to restore to previous
+# Removes the specified file from the staging area without deleting it from the working directory.
+
+git commit -m "message"
+# to commit messages  
+# Commits staged changes to the repository with a message describing what was changed.
+
+git branch add_feature
+# create a new branch
+# Creates a new branch called `add_feature` without switching to it.
+
+git checkout add_feature
+# Switched to branch 'add_feature'
+# Switches to an existing branch, `add_feature`.
+
+git checkout -b add_feature
+# directly create and switch
+# Creates a new branch `add_feature` and switches to it directly.
+
+git push -u origin add_feature
+# to push changes from local branch named add_feature to a remote repository (origin) 
+# Pushes changes from the local `add_feature` branch to the remote repository `origin` and sets up tracking for future pushes.
+
+git remote -v
+# to find the remote repository it is
+# Lists remote repositories associated with the local repo, showing where code is pulled from and pushed to.
+
+git pull
+# pull from remote
+# Fetches and integrates changes from a remote branch into the current branch.
+
+git log --pretty=oneline
+# to view logs
+# Shows a simplified, one-line summary for each commit.
+
+git diff HEAD filename
+# to see difference
+# Shows differences between the latest commit (`HEAD`) and the current working directory for `filename`.
+
+git blame filename
+# history of each line in the current version of the file
+# Shows which commit and author last modified each line in the specified file.
+
+git blame -L 9,12 filename
+# to see exact line changes
+# Shows the blame (history) for a specific line range (9 to 12) in a file.
+
+git reset filename
+# to remove file from staging area without deleting changes
+# Removes `filename` from staging but keeps the file changes in the working directory.
+
+# Additional Useful Commands
+
+git reset --soft HEAD~1
+# Undo last commit (but keep changes staged)
+# Moves the last commit back to the staging area, allowing you to adjust it before recommitting.
+
+git stash
+# Temporary storage
+# Temporarily saves uncommitted changes, allowing you to switch branches or pull updates without committing incomplete work.
+
+git fetch origin
+# Fetches latest commits from remote (without merging)
+# Fetches updates from the remote without applying them to your branch, allowing you to review changes first.
+
+git merge branch_name
+# Merge branch
+# Merges `branch_name` into the current branch.
+
+git branch -d branch_name
+# Delete a branch
+# Deletes the specified branch locally.
+
+git log -p
+# Show detailed commit history with diffs
+# Shows commit history along with the differences introduced in each commit.
+
+git config --list
+# View configuration information
+# Lists all Git configurations, including user name, email, and other settings.
+
+# Example Summary of Workflow
+
+# Initialize a new repository
+git init
+
+# Create a file and add to staging
+git add myfile.txt
+
+# Commit staged changes with a message
+git commit -m "Initial commit of myfile.txt"
+
+# Create a new branch for a feature
+git checkout -b new_feature
+
+# Make changes, add to staging, and commit
+git add filename
+git commit -m "Add feature X"
+
+# Push new branch to remote repository
+git push -u origin new_feature
+hi
