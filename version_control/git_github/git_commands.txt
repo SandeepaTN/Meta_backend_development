@@ -1,11 +1,16 @@
-git init                                #Creation of the .git Directory
-git status                              #to view status
-git add filename/folder/.               #to track file/ to staging
-git restore --stage filename/folder/.   #to resore to previous
-git commit -m msg                       #to commit messages  
-git branch add_feauture                 #create a new branch
-git checkout add_feauture               #Switched to branch 'add_feauture'
-git checkout -b  add_feauture           #directly create and switch
-git push -u origin add_feauture         #to push changes from  local branch named add_feature to a remote repository(origin)    
-git remote -v                           #to find the remote repository it is
-git pull                                #pull from remote
+git init                                                        #Creation of the .git Directory
+git status                                                      #to view status
+git add filename/folder/.                                       #to track file/ to staging
+git restore --stage filename/folder/.                           #to resore to previous
+git commit -m msg                                               #to commit messages  
+git branch add_feauture                                         #create a new branch
+git checkout add_feauture                                       #Switched to branch 'add_feauture'
+git checkout -b  add_feauture                                   #directly create and switch
+git push -u origin add_feauture                                 #to push changes from  local branch named add_feature to a remote repository(origin)    
+git remote -v                                                   #to find the remote repository it is
+git pull                                                        #pull from remote
+git log --pretty=oneline                                        #to view logs 
+git diff HEAD version_control/unix_commands/commands.txt        #to see difference 
+git blame filename                                              #to see changes made to the single file
+git blame -L 9,12  version_control/git_github/git_commands.txt  #to see exact line changes 
+
