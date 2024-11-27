@@ -1,0 +1,31 @@
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass      #presetting in windows to create virtual envrionment
+python -m venv env                                              #creating python virtual envrionment (env is VE's name, can give any name)
+.\env\Scripts\activate                                          #activating virtual envrionment
+deactivate                                                      #deactivating VE
+django-admin startproject demoproject demo1                     #to create a newproject inside one folder(demo1 which is optional)
+python manage.py startapp demoapp                               #to create a new app
+python manage.py makemigrations                                 #to make migrations. Migration refers to generating a database table whose structure matches the data model declared in the app
+python manage.py migrate                                        #synchronizes the database state with the currently declared models and migrations 
+python manage.py runserver                                      #starts Django’s built-in development server on the local machine with IP address 127.0.0.1 and port 8000
+python manage.py shell                                          #opens up an interactive Python shell inside the project
+#u can also django-admin instead of python manage.py            
+
+python manage.py makemigrations                                 #It creates a script for  creating table or making changes in the mapped table.
+python manage.py migrate                                        #To implement the changes according to the migration script in the database
+python manage.py migrate demoapp 0002_alter_user_email          #the migrations after it will be undone or unapplied.
+python manage.py showmigrations 
+ python manage.py sqlmigrate demoapp 0002_alter_user_email      #shows the SQL query or queries executed when a certain migration script is run
+
+ORM: QuerySet -A QuerySet is a collection of objects for a given model used in Django. 
+dep=Department(Department_name="ISE")
+dep.save()                                                      #creates a row in the Department table.
+dep=Department.objects.create(Department_name="CSE")            # Customer.objects gives the Manager of the model.The create() method actually performs the INSERT operation of SQL
+dep=Department.objects.get(pk=2)                                #Fetch the Department object with a primary key = 2.
+usr=User.objects.create(name="Sandy",email="sandy@gmai.co",password=1234,dept_id=dep)# here dep is value of foreign key
+lst=Department.objects.all()                                   #To fetch all the objects, use the all() method of the Manager.
+names_s=User.objects.filter(name__startswith="S")              #apply filters to the data fetched from the model.
+dep.Department_name="Maths" dep.save()                         #for updating 
+usr.delete()                                                   #to delete a record
+ names_s=User.objects.filter(name__startswith="S") and User.objects.filter(dept_id=3) #joining multiple conditions
+
+
