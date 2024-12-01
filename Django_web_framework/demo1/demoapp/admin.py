@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Application
+from .models import Application,Person
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
 # Register your models here.
@@ -7,7 +7,7 @@ from django.contrib.auth.admin import UserAdmin
 # admin.site.register(Department)
 
 #admin.site.register(Application)
-
+admin.site.register(Person)
 admin.site.unregister(User)
 @admin.register(User)
 class NewAdmin(UserAdmin):

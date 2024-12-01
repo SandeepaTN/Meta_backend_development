@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>{{ content|default:"Content not found" }}</p>
+   <h1> Name is {{content.name|upper}} <h1>
+    {%if content.passout > 2022 %}
+        elligible.!!. you will get call if you know below
+        <ul>{% for language in languages%}
+        <li>{{forloop.counter}},{{forloop.first}}  {{language}}</li>
+        {%endfor%}
+        </ul>
+    {% else %}
+    <p>not eligible above 2022 batch</p>
+    {% endif %}
+    
+    <ol>
+    {% for key, value in content.items %}
+    <li> {{key}} : {{value}} </li>
+    {% endfor %}
+    </ol>
+
+    {% comment "Optional note"%}
+        <p>Commented out</p>
+    {% endcomment %}    
+
+    {% with ha=5 %}
+        salary={{ha}}
+         variable ha is valid in this with scope inly
+
+    {% endwith %}
+    
+    
+    
+</body>
+</html>

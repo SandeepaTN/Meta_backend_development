@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docume</title>
+</head>
+<body>
+    {% extends 'base.html'%}
+        {%block content%}
+            {% load static %}
+            <h1 style="color: #495E57;">Menu</h1>
+            <img src="{% static 'download.jpg'%}" alt="">
+            {% if menu%}
+                <ul>
+                {% for item in menu%}
+            <li>{{item.name|upper}} : {{item.price}}</li>
+                {% endfor%}
+                </ul>
+            {%endif%}
+        {%endblock%}
+        {%block footer%}
+                {{block.super}}
+                <h4 align="right">Sandeepa</h4>
+                
+        {%endblock%}
+
+</body>
+</html>

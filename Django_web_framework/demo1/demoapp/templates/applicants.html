@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table style="border: 2px solid  #000000;background-color:rgb(239, 241, 233); ">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Applying
+            </th>
+            <th>
+                Email
+            </th>
+        </tr>
+        {%for appli in data%}
+            <tr >
+                <td style="border:2px solid rgb(23, 176, 10);">{{appli.name}}</td>
+                <td style="border:2px solid red;">{{appli.applying_to}}</td>
+                <td style="border:2px solid red;">{{appli.email}}</td>
+            </tr>
+        {%endfor%}
+    </table>
+</body>
+</html>

@@ -25,6 +25,7 @@ handler404 = 'demoproject.views.handler40'
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("",include('demoapp.urls')),
+    path("generic/",include('generic_views.urls')),
 
 ]
 

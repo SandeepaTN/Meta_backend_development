@@ -53,9 +53,18 @@ class Application(models.Model):
     about = models.CharField(max_length=200)
     available_on = models.DateField()
     applying_to = models.CharField(max_length=200, choices=jobs)
-    resume = models.FileField()
+    resume = models.FileField(upload_to='resume')
     class Meta:
         permissions=[('can_change_resume',"Can change resume")]
 
     def __str__(self):
         return f'{self.name},{self.applying_to}'
+    
+
+class Person(models.Model):
+    first_name=models.CharField(max_length=100)
+    last_name=models.CharField(max_length=150)
+    booking_time=models.DateTimeField(auto_now=True,)
+
+    def __str__(self):
+        return self.first_name

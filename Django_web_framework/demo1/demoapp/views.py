@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponsePermanentRedirect,Http404,Http
 from django.urls import reverse
 from django.views import View #for class based
 from . import forms
-
+from .models import Application
 
 
 def index(request, id):  # http://127.0.0.1:8000/index/5
@@ -34,7 +34,7 @@ def index(request, id):  # http://127.0.0.1:8000/index/5
     return HttpResponse(content)
 
 
-def home(request):  # http://127.0.0.1:8000/index/?name=sandy
+def home(request):  # http://127.0.0.1:8000/home?name=sandy
     print(request)
     try:
         if request.GET['name']:
@@ -70,17 +70,24 @@ class Getform(View):
         # # post  http://127.0.0.1:8000/register/ to http://127.0.0.1:8000/user/
         form_data = forms.ApplicationForm(req.POST,req.FILES)
         if not form_data.is_valid():
-             print(form_data.errors)  # Logs a dictionary of field errors
-
-        if form_data.is_valid():
+            print(form_data.errors)  # Logs a dictionary of field errors
+            return HttpResponsePermanentRedirect(reverse('demoapp:register'))
+        else: 
             form_data.save()
             name=form_data.cleaned_data["name"] 
-            apply=form_data.cleaned_data["applying_to"] 
+            apply=form_data.cleaned_data["applying_to"]
+            pass_year = form_data.cleaned_data["passout_year"]
+            available=form_data.cleaned_data["available_on"]
+            about=form_data.cleaned_data["about"]
 
-            content = f"<h1> Name is {name} and applying to {apply}<h1>"
-            return HttpResponse(content)
-        else:
-            return HttpResponsePermanentRedirect(reverse('demoapp:register'))
+            content = {'name': name, 'apply': apply, 'passout':pass_year,'available':available,'about':about}
+            languages=['python','C','C++']
+            return render(req,'user.html',{'content':content,'languages':languages})
+        
+            
+def applicants(request):
+    data=Application.objects.all()
+    return render(request,'applicants.html',{'data':data})
 
 def reg(request,num):
     return HttpResponse("HI")
