@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "BookListAPI"
+    "BookListAPI",
+    "routApp",
+    "MenuAPI",
+    "rest_framework",   #including DRF
+    "debug_toolbar"  # Django debug toolbar
 ]
 
 MIDDLEWARE = [
@@ -48,6 +52,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware"           #debug-toolbar middleware
 ]
 
 ROOT_URLCONF = "BookList.urls"
@@ -55,7 +60,7 @@ ROOT_URLCONF = "BookList.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR/"MenuAPI/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -122,3 +127,28 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+INTERNAL_IPS=[
+    '127.0.0.1'         #for debugtoolbar
+]
+
+
+
+REST_FRAMEWORK={  
+    "DEFAULT_RENDERER_CLASSES":[        #to include other rendering formats
+       'rest_framework.renderers.JSONRenderer',  #default
+        'rest_framework.renderers.BrowsableAPIRenderer', #default
+        'rest_framework_xml.renderers.XMLRenderer',   #need to install
+        "rest_framework_yaml.renderers.YAMLRenderer"
+        
+    ],
+    'DEFAULT_FILTER_BACKENDS': [  # pip install django-filter   DRF classes for filtering
+
+    'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.OrderingFilter',  
+        'rest_framework.filters.SearchFilter',
+    ],
+    # DRF’s built-in pagination classes
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE":4
+}
