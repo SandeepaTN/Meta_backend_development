@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,7 +42,11 @@ INSTALLED_APPS = [
     "routApp",
     "MenuAPI",
     "rest_framework",   #including DRF
-    "debug_toolbar"  # Django debug toolbar
+    "debug_toolbar",  # Django debug toolbar
+    "rest_framework.authtoken",  # Token-based authentication in DRF
+    "djoser"  ,             # for better authentication
+    # "rest_framework_simplejwt",      #json web token
+    # "rest_framework_simplejwt.token_blacklist", #to blacklist jwt refresh token
 ]
 
 MIDDLEWARE = [
@@ -150,5 +155,33 @@ REST_FRAMEWORK={
     ],
     # DRF’s built-in pagination classes
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-    "PAGE_SIZE":4
+    "PAGE_SIZE":4,
+    
+    "DEFAULT_AUTHENTICATION_CLASSES":[
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        #'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_THROTTLE_RATES':{
+        "anon":'10/minute',
+        "user":"20/minute",
+        "ten":"10/minute"
+    },
+    "DEFAULT_THROTTLE_CLASSES":[  #for class based
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ]
+        
+}
+
+
+DJOSER={
+    "USER_ID_FIELD":"username",
+    #"LOGIN_FIELD":"email"
+}
+
+
+#to set jwt access token expire time
+SIMPLE_JWT={
+    "ACCESS_TOKEN_LIFETIME":timedelta(minutes=5)
 }
